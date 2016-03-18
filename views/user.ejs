@@ -12,13 +12,25 @@
   </head>
   <body>
   <div class="container">
+    <h1>My Pics</h1>
+    <form role="form">
+      <div class="form-group">
+        <label for="url">image web url:</label>
+        <input type="text" class="form-control" id="url" placeholder="image web url">
+      </div>
+      <div class="form-group">
+        <label for="title">Image title</label>
+        <input type="text" class="form-control" id="title" placeholder="image title:">
+      </div>
+      
+      <button type="submit" class="btn btn-default add-button">Add</button>
     </form>
     <div class="grid">
       <div class="grid-sizer"></div>
       <div class="grid-item"></div>
     </div>
   </div>
-  <script src="/javascripts/pic-wall-main.js"></script>
+  <script src="/javascripts/pic-wall-responsive.js"></script>
   </body>
 </html>
 

@@ -1,5 +1,4 @@
-var url;
-var title;
+"use strict";
 
 var $grid = $('.grid').masonry({
   itemSelector: '.grid-item',
@@ -11,46 +10,24 @@ $grid.imagesLoaded().progress( function() {
   $grid.masonry();
 });  
 
-
-function storeNewPic(result){
+function showPics(result){
   var allPics = result.pics;
-  console.log('success function pics', allPics);
-  allPics.push({"title": title, "url": url});
-  $.post('http://localhost:3000/store-pic', {"data": allPics});
-}
-
-$('.add-button').on('click', function(event) {
-  event.preventDefault();
-  url = $("#url").val();
-  title = $("#title").val();
-  var elems = [getItemElement(url, title)];
-  // make jQuery object
+  var elems = allPics.map(getItemElement);
   var $elems = $(elems);
   $grid.append($elems).masonry('appended', $elems);
-  
-  $.getJSON('http://localhost:3000/all-pics', storeNewPic)
-});
+}
 
-
-$grid.on( 'click', '.grid-item', function( event ) {
-  event.preventDefault();
-  $grid.masonry( 'remove', event.currentTarget )
-    // trigger layout
-    .masonry();
-});
-
-
-function getItemElement(link, title) {
+function getItemElement(pic) {
   var elem = document.createElement('div');
   var image = document.createElement('img');
-  image.src = link;
+  image.src = pic.url;
   var overlay = document.createElement('a');
   overlay.className = "overlay";
   overlay.href = "#";
 
   var imageTitle = document.createElement('p');
   imageTitle.className = "title";
-  var text = document.createTextNode(title);
+  var text = document.createTextNode(pic.title);
   imageTitle.appendChild(text);
   overlay.appendChild(imageTitle);
   elem.appendChild(image);
@@ -60,6 +37,34 @@ function getItemElement(link, title) {
   elem.className = 'grid-item ' ;
   return elem;
 }
+
+
+
+ $.getJSON('http://localhost:3000/all-pics', showPics)
+
+
+
+
+// $('.add-button').on('click', function(event) {
+//   event.preventDefault();
+//   url = $("#url").val();
+//   title = $("#title").val();
+//   var elems = [getItemElement(url, title)];
+//   // make jQuery object
+//   var $elems = $(elems);
+//   $grid.append($elems).masonry('appended', $elems);
+  
+//   $.getJSON('http://localhost:3000/all-pics', storeNewPic)
+// });
+
+
+// $grid.on( 'click', '.grid-item', function( event ) {
+//   event.preventDefault();
+//   $grid.masonry( 'remove', event.currentTarget )
+//     // trigger layout
+//     .masonry();
+// });
+
 
 
 

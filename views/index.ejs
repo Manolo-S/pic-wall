@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Pic Wall</title>
+    <script src="/lib/jQuery.2.2.1.js"></script>
+    <script src="/lib/masonry-layout.4.0.0.js"></script>
+    <script src="/lib/imagesLoaded.4.1.0.js"></script>
+    <script src="/lib/bootstrap.3.3.6.js"></script>
+    <link href="/lib/bootstrap.3.3.6.css" rel="stylesheet">
+    <link href="/lib/pic-wall-responsive.css" rel="stylesheet">
+  </head>
+  <body>
+  <div class="container">
+    <h1>My Pics</h1>
+    <form role="form">
+      <div class="form-group">
+        <label for="url">image web url:</label>
+        <input type="text" class="form-control" id="url" placeholder="image web url">
+      </div>
+      <div class="form-group">
+        <label for="title">Image title</label>
+        <input type="text" class="form-control" id="title" placeholder="image title:">
+      </div>
+      
+      <button type="submit" class="btn btn-default add-button">Add</button>
+    </form>
+    <div class="grid">
+      <div class="grid-sizer"></div>
+      <div class="grid-item"></div>
+    </div>
+  </div>
+  <script src="/javascripts/pic-wall-responsive.js"></script>
+  </body>
+</html>
+

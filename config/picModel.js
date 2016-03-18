@@ -11,4 +11,5 @@ var PicsSchema = new Schema({
 	pics: [PicSchema]
 });
 
-module.exports = mongoose.model('pics', PicSchema);
+module.exports = mongoose.model('pics', PicsSchema);
+

@@ -112,3 +112,7 @@ body { font-family: sans-serif; }
 #facebook-a:hover{
  background-color: #99bbff;    
 }
+
+#user {
+  display: none;
+}

@@ -14,6 +14,9 @@ $grid.imagesLoaded().progress( function() {
 
 function storeNewPic(result){
   var allPics = result.pics;
+  if (allPics === undefined){
+    allPics = [];
+  }
   allPics.push({"title": title, "url": url});
   $.post('https://pic-wall.herokuapp.com/store-pic', {"data": allPics});
   // $.post('http://localhost:3000/store-pic', {"data": allPics});

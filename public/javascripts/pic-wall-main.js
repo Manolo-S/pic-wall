@@ -12,6 +12,9 @@ $grid.imagesLoaded().progress( function() {
 
 function showPics(result){
   var allPics = result.pics;
+  if (allPics === undefined){
+      return;
+  }
   var elems = allPics.map(getItemElement);
   var $elems = $(elems);
   $grid.append($elems).masonry('appended', $elems);

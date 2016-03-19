@@ -21,7 +21,8 @@ function callback(err, result){
 function removePic(){
 	if (mongoose.connection.readyState === 0) { 
 		console.log('removepic', url);
-		var db = mongoose.connect('mongodb://localhost/pic-wall');
+		// var db = mongoose.connect('mongodb://localhost/pic-wall');
+		var db = mongoose.connect('mongodb://piet:snot@ds047722.mlab.com:47722/pic-wall')
 		picModel.update( {}, { $pull : { pics : {"url": url} } }, {multi: true}, callback)
 	}
 }

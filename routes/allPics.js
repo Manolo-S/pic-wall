@@ -5,9 +5,9 @@ var mongoose = require('mongoose');
 var picModel = require('../config/picModel.js');
 
 router.use('/', function(req, res, next){
-	console.log('all pics route middleware called');
 	if (mongoose.connection.readyState === 0){
-		var db = mongoose.connect('mongodb://localhost/pic-wall');
+		// var db = mongoose.connect('mongodb://localhost/pic-wall');
+		var db = mongoose.connect('mongodb://piet:snot@ds047722.mlab.com:47722/pic-wall')
 	}
 
 	picModel.find({}, function(err, picsData){
@@ -21,7 +21,6 @@ router.use('/', function(req, res, next){
 
 router.get('/', function(req, res){
 	res.json(allPics);
-	console.log('router allpics.js allPics', allPics)
 });
 
 module.exports = router;

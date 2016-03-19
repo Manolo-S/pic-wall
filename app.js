@@ -2,8 +2,8 @@
 var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
-// var passport = require('passport');
-// var session = require('express-session');
+var passport = require('passport');
+var session = require('express-session');
 var mongoose = require('mongoose');
 
 var index = require('./routes/index');
@@ -11,21 +11,17 @@ var user = require('./routes/user');
 var storePic = require('./routes/storePic');
 var removePic = require('./routes/removePic');
 var allPics = require('./routes/allPics');
-// var auth = require('./routes/auth');
+var auth = require('./routes/auth');
 
 var app = express();
-
-// var db = mongoose.connect('mongodb://piet:snot@ds019678.mlab.com:19678/poll-app');
-
+var db = mongoose.connect('mongodb://piet:snot@ds047722.mlab.com:47722/pic-wall')
 var picModel = require('./config/picModel.js');
 
-// app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
-// app.use(express.static(path.join(__dirname, 'public')));
 
-// app.use(session({secret: 'anything'}));
+app.use(session({secret: 'anything'}));
 
-// require('./config/passport')(app);
+require('./config/passport')(app);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
@@ -36,7 +32,7 @@ app.use('/user', user);
 app.use('/store-pic', storePic);
 app.use('/remove-pic', removePic);
 app.use('/all-pics', allPics);
-// app.use('/auth', auth);
+app.use('/auth', auth);
 
 
 app.use(function(req, res, next) {
@@ -71,15 +67,18 @@ app.set('port', process.env.PORT || 3000);
 
 var picModel = require('./config/picModel');
 
-var allPics = {
-	"allPics": [{
-		title: "tweety",
-		url: "http://www.disneyclips.com/imagesnewb6/images/tweet5.gif"
-	}, {
-		title: "monkey",
-		url: "http://images.clipartpanda.com/monkey-clipart-4ib5bExig.jpeg"
-	}]
-}
+//TODO: remove code below
+
+
+// var allPics = {
+// 	"allPics": [{
+// 		title: "tweety",
+// 		url: "http://www.disneyclips.com/imagesnewb6/images/tweet5.gif"
+// 	}, {
+// 		title: "monkey",
+// 		url: "http://images.clipartpanda.com/monkey-clipart-4ib5bExig.jpeg"
+// 	}]
+// }
 
 // console.log(mongoose.connection.readyState);
 
@@ -98,9 +97,6 @@ var allPics = {
 // 		}
 // 	});
 // }
-
-
-
 
 
 var server = app.listen(app.get('port'), function() {

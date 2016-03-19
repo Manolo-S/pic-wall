@@ -8,13 +8,29 @@
     <script src="/lib/imagesLoaded.4.1.0.js"></script>
     <script src="/lib/bootstrap.3.3.6.js"></script>
     <link href="/lib/bootstrap.3.3.6.css" rel="stylesheet">
+    <link href="/lib/font-awesome.min.css" rel="stylesheet">
     <link href="/lib/pic-wall-responsive.css" rel="stylesheet">
   </head>
   <body>
+  <nav class='navbar navbar-default container'>
+        <div class='navbar-header'>
+            <a class='navbar-brand' href='#' id='brand'>Pic Wall</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a class="twitter" id='twitter-a' href="/auth/twitter"><i class=
+                "fa fa-twitter" id='twitter'></i></a>
+            </li>
+            <li>
+                <a class="facebook" id='facebook-a' href="/auth/facebook"><i class=
+                "fa fa-facebook" id='facebook'></i></a>
+            </li>
+        </ul>
+    </nav>
   <div class="container">
-    </form>
     <div class="grid">
-      <div class="grid-sizer"></div>
+      <div class="grid-sizer">
+      </div>
     </div>
   </div>
   <script src="/javascripts/pic-wall-main.js"></script>

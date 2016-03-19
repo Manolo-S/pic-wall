@@ -68,3 +68,47 @@ body { font-family: sans-serif; }
 .grid-item:hover .overlay {
     display: block;
 }
+
+
+#brand{
+    color: #000;
+}
+
+#google, #twitter, #facebook {
+    text-align: center;
+    font-size: 16px;
+    display: block;
+    padding-top: 4px;
+    color: white;
+    height: 20px;
+    width:15px;
+}
+
+#google-a, #twitter-a, #facebook-a{
+    display: block;
+    margin-right: 3px;
+}
+
+
+/* TODO delete?
+/*hr.small {
+    max-width: 100px;
+    margin: 15px auto;
+    border-width: 4px;
+    border-color: #fff;
+}
+*/
+.facebook{
+  background: #3b5998;
+}
+.twitter {
+    background: #55acee;
+}
+
+#twitter-a:hover{
+ background-color: #b3f0ff;    
+}
+
+#facebook-a:hover{
+ background-color: #99bbff;    
+}

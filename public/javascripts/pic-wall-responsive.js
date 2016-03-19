@@ -14,9 +14,9 @@ $grid.imagesLoaded().progress( function() {
 
 function storeNewPic(result){
   var allPics = result.pics;
-  // console.log('success function pics', allPics);
   allPics.push({"title": title, "url": url});
-  $.post('http://localhost:3000/store-pic', {"data": allPics});
+  $.post('https://pic-wall.herokuapp.com/store-pic', {"data": allPics});
+  // $.post('http://localhost:3000/store-pic', {"data": allPics});
 }
 
 $('.add-button').on('click', function(event) {
@@ -28,18 +28,18 @@ $('.add-button').on('click', function(event) {
   var $elems = $(elems);
   $grid.append($elems).masonry('appended', $elems);
   
-  $.getJSON('http://localhost:3000/all-pics', storeNewPic)
+  $.getJSON('https://pic-wall.herokuapp.com/all-pics', storeNewPic)
+  // $.getJSON('http://localhost:3000/all-pics', storeNewPic)
 });
 
 
 $grid.on( 'click', '.grid-item', function( event ) {
   event.preventDefault();
-  if (event.target.id !== undefined){
-    console.log('remove', event.target.id);
-    $.post('http://localhost:3000/remove-pic', {"url": event.target.id});
+  if (event.target.id !== undefined){ //clicking on the overlay text results in undefined
+    $.post('https://pic-wall.herokuapp.com/remove-pic', {"url": event.target.id});
+    // $.post('http://localhost:3000/remove-pic', {"url": event.target.id});
   }
 
- //TODO: remove picture from DB
 
   $grid.masonry( 'remove', event.currentTarget )
     // trigger layout
@@ -49,7 +49,6 @@ $grid.on( 'click', '.grid-item', function( event ) {
 $('a').on('click', function(event){
   event.preventDefault();
   var url = event.target.id;
-  console.log('a url', url);
 })
 
 

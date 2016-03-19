@@ -49,8 +49,8 @@ $grid.on( 'click', '.grid-item', function( event ) {
 });
 
 
- // $.getJSON('https://pic-wall.herokuapp.com/all-pics', showPics)
- $.getJSON('http://localhost:3000/all-pics', showPics)
+ $.getJSON('https://pic-wall.herokuapp.com/all-pics', showPics)
+ // $.getJSON('http://localhost:3000/all-pics', showPics)
 
 
 

@@ -1,5 +1,6 @@
 var url;
 var title;
+var user;
 
 var $grid = $('.grid').masonry({
   itemSelector: '.grid-item',
@@ -17,7 +18,7 @@ function storeNewPic(result){
   if (allPics === undefined){
     allPics = [];
   }
-  allPics.push({"title": title, "url": url});
+  allPics.push({"user": user, "title": title, "url": url});
   $.post('https://pic-wall.herokuapp.com/store-pic', {"data": allPics});
   // $.post('http://localhost:3000/store-pic', {"data": allPics});
 }
@@ -26,6 +27,7 @@ $('.add-button').on('click', function(event) {
   event.preventDefault();
   url = $("#url").val();
   title = $("#title").val();
+  user = $("#user").val();
   var elems = [getItemElement(url, title)];
   // make jQuery object
   var $elems = $(elems);
@@ -55,14 +57,14 @@ $('a').on('click', function(event){
 })
 
 
-function getItemElement(link, title) {
+function getItemElement(url, title) {
   var elem = document.createElement('div');
   var image = document.createElement('img');
-  image.src = link;
+  image.src = url;
   var overlay = document.createElement('a');
   overlay.className = "overlay";
   overlay.href = "#";
-  overlay.id = link;
+  overlay.id = url;
 
   var imageTitle = document.createElement('p');
   imageTitle.className = "title";

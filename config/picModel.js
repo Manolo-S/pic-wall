@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var PicSchema = new Schema({
+	user: String,
 	title: String,
 	url: String,
 	_id: false

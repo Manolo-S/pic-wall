@@ -23,11 +23,12 @@ function callback(){
 
 
 function storePic(){
-	if (mongoose.connection.readyState === 0) { 
+	console.log('store pic fun called')
+	// if (mongoose.connection.readyState === 0) { 
 		var db = mongoose.connect('mongodb://piet:snot@ds047722.mlab.com:47722/pic-wall')
 		// var db = mongoose.connect('mongodb://localhost/pic-wall');
 		picModel.remove({}, callback);
-	}
+	// }
 }
 
 

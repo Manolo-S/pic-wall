@@ -65,15 +65,17 @@ app.use(function(err, req, res, next) {
 
 app.set('port', process.env.PORT || 3000);
 
+
+// TODO: remove code below
+
 // var picModel = require('./config/picModel');
 
-//TODO: remove code below
 
 
 // var allPics = {
 // 	"allPics": [{
-// 		title: "tweety",
-// 		url: "http://www.disneyclips.com/imagesnewb6/images/tweet5.gif"
+// 		title: "Goofy",
+// 		url: "http://1.bp.blogspot.com/-YNUuBntvEII/VqMQIi6q5TI/AAAAAAAAbCQ/rLlKiF92gbQ/s1600/hurrah.gif"
 // 	}, {
 // 		title: "monkey",
 // 		url: "http://images.clipartpanda.com/monkey-clipart-4ib5bExig.jpeg"
@@ -83,7 +85,8 @@ app.set('port', process.env.PORT || 3000);
 // console.log(mongoose.connection.readyState);
 
 // if (mongoose.connection.readyState === 0) {
-// 	var db = mongoose.connect('mongodb://localhost/pic-wall');
+//     // var db = mongoose.connect('mongodb://localhost/pic-wall');
+// 	var db = mongoose.connect('mongodb://piet:snot@ds047722.mlab.com:47722/pic-wall');
 // 	console.log('connected to db');
 // 	picModel.create({
 // 		pics: allPics.allPics

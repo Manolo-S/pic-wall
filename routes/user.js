@@ -15,12 +15,14 @@ router.use('/', function(req, res, next) {
 router.get('/', function(req, res){
 	res.render('user', {
 		user: {
-			name: req.user.displayName
+			id: req.user.id
 		}
 	})
 });
 
 module.exports = router;
+
+
 
 
 

@@ -14,6 +14,8 @@ module.exports = function(){
             user.twitter = {};
             user.twitter.id = profile.id;
             user.twitter.token = token;
+            user.id = profile.id;
+            
             
             done(null, user);
 	}))

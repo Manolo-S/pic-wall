@@ -14,6 +14,7 @@ module.exports = function(){
             user.facebook = {};
             user.facebook.id = profile.id;
             user.facebook.token = accessToken;
+            user.id = profile.id;
             
             done(null, user);
 	}))

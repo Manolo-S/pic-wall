@@ -14,7 +14,7 @@ var allPics = require('./routes/allPics');
 var auth = require('./routes/auth');
 
 var app = express();
-var db = mongoose.connect('mongodb://piet:snot@ds047722.mlab.com:47722/pic-wall')
+// var db = mongoose.connect('mongodb://piet:snot@ds047722.mlab.com:47722/pic-wall')
 var picModel = require('./config/picModel.js');
 
 app.use(bodyParser.urlencoded({extended:true}));
@@ -65,7 +65,7 @@ app.use(function(err, req, res, next) {
 
 app.set('port', process.env.PORT || 3000);
 
-var picModel = require('./config/picModel');
+// var picModel = require('./config/picModel');
 
 //TODO: remove code below
 

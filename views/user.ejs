@@ -11,25 +11,37 @@
     <link href="/lib/pic-wall-responsive.css" rel="stylesheet">
   </head>
   <body>
-  <div class="container">
-    <h1>My Pics</h1>
-    <form role="form">
-      <div class="form-group">
-        <label for="url">image web url:</label>
-        <input type="text" class="form-control" id="url" placeholder="image web url">
+    <nav class='navbar navbar-default container' id='navbar'>
+      <div class='navbar-header'>
+        <a class='navbar-brand' href='#' id='brand'>Pic Wall</a>
       </div>
-      <div class="form-group">
-        <label for="title">Image title</label>
-        <input type="text" class="form-control" id="title" placeholder="image title:">
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="https://poll-app-ms.herokuapp.com" id='home'>Home</a>
+        </li>
+        <li>
+          <span id='user'><%=user.name%></span>
+        </li>
+      </ul>
+    </nav>
+    <div class="container">
+      <h1>My Pics</h1>
+      <form role="form">
+        <div class="form-group">
+          <label for="url">image web url:</label>
+          <input type="text" class="form-control" id="url" placeholder="image web url">
+        </div>
+        <div class="form-group">
+          <label for="title">Image title</label>
+          <input type="text" class="form-control" id="title" placeholder="image title:">
+        </div>
+        
+        <button type="submit" class="btn btn-default add-button">Add</button>
+      </form>
+      <div class="grid">
+        <div class="grid-sizer"></div>
       </div>
-      
-      <button type="submit" class="btn btn-default add-button">Add</button>
-    </form>
-    <div class="grid">
-      <div class="grid-sizer"></div>
     </div>
-  </div>
-  <script src="/javascripts/pic-wall-responsive.js"></script>
+    <script src="/javascripts/pic-wall-responsive.js"></script>
   </body>
 </html>
-

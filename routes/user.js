@@ -13,11 +13,14 @@ router.use('/', function(req, res, next) {
 
 
 router.get('/', function(req, res){
-	res.render('user')
+	res.render('user', {
+		user: {
+			name: req.user.displayName
+		}
+	})
 });
 
 module.exports = router;
-
 
 
 

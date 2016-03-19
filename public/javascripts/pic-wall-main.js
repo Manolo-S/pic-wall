@@ -38,6 +38,12 @@ function getItemElement(pic) {
   return elem;
 }
 
+$grid.on( 'click', '.grid-item', function( event ) {
+  event.preventDefault();
+  $grid.masonry( 'remove', event.currentTarget )
+    // trigger layout
+    .masonry();
+});
 
 
  $.getJSON('http://localhost:3000/all-pics', showPics)

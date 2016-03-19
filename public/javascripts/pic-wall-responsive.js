@@ -14,7 +14,7 @@ $grid.imagesLoaded().progress( function() {
 
 function storeNewPic(result){
   var allPics = result.pics;
-  console.log('success function pics', allPics);
+  // console.log('success function pics', allPics);
   allPics.push({"title": title, "url": url});
   $.post('http://localhost:3000/store-pic', {"data": allPics});
 }
@@ -34,10 +34,23 @@ $('.add-button').on('click', function(event) {
 
 $grid.on( 'click', '.grid-item', function( event ) {
   event.preventDefault();
+  if (event.target.id !== undefined){
+    console.log('remove', event.target.id);
+    $.post('http://localhost:3000/remove-pic', {"url": event.target.id});
+  }
+
+ //TODO: remove picture from DB
+
   $grid.masonry( 'remove', event.currentTarget )
     // trigger layout
     .masonry();
 });
+
+$('a').on('click', function(event){
+  event.preventDefault();
+  var url = event.target.id;
+  console.log('a url', url);
+})
 
 
 function getItemElement(link, title) {
@@ -47,6 +60,7 @@ function getItemElement(link, title) {
   var overlay = document.createElement('a');
   overlay.className = "overlay";
   overlay.href = "#";
+  overlay.id = link;
 
   var imageTitle = document.createElement('p');
   imageTitle.className = "title";

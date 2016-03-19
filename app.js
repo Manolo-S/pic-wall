@@ -9,6 +9,7 @@ var mongoose = require('mongoose');
 var index = require('./routes/index');
 var user = require('./routes/user');
 var storePic = require('./routes/storePic');
+var removePic = require('./routes/removePic');
 var allPics = require('./routes/allPics');
 // var auth = require('./routes/auth');
 
@@ -33,6 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/user', user);
 app.use('/store-pic', storePic);
+app.use('/remove-pic', removePic);
 app.use('/all-pics', allPics);
 // app.use('/auth', auth);
 

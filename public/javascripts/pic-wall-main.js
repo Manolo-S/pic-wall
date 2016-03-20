@@ -17,7 +17,7 @@ var $grid = $('.grid').masonry({
 //   }); 
 // });
 
-$(window).load(function(){   $grid.masonry(); });
+$(window).load(function(){   $grid.masonry('layout'); });
 
 function showPics(result){
   var allPics = result.pics;

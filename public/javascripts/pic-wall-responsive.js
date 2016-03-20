@@ -1,7 +1,7 @@
 "use strict";
 var url;
 var title;
-var user = $("#user").val();
+var user;
 
 var $grid = $('.grid').masonry({
   itemSelector: '.grid-item',
@@ -31,6 +31,8 @@ function showUserPics (result){
 
 
 function storeNewPic(result){
+  user = $("#user").val();
+  console.log('user', user);
   var allPics = result.pics;
   allPics.push({"user": user, "title": title, "url": url});
   $.post('https://pic-wall.herokuapp.com/store-pic', {"data": allPics});

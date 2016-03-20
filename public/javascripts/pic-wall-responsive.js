@@ -108,6 +108,8 @@ function getItemElement2(pic) {
   
   var imageUser = document.createElement('p');
   imageUser.className = "user";
+  var userText = document.createTextNode(pic.user);
+  imageUser.appendChild(userText);
   var imageTitle = document.createElement('p');
   imageTitle.className = "title";
   var text = document.createTextNode(pic.title);

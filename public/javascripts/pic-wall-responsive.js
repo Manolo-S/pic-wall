@@ -114,8 +114,7 @@ function getItemElement2(pic) {
   imageTitle.className = "title";
   var text = document.createTextNode(pic.title);
   imageTitle.appendChild(text);
-  overlay.appendChild(imageUser);
-  overlay.appendChild(imageTitle);
+  overlay.append(imageUser, imageTitle);
   elem.appendChild(image);
   elem.appendChild(overlay);
   var hRand = Math.random();

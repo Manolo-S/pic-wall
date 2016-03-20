@@ -2,6 +2,8 @@
 var url;
 var title;
 var user = document.getElementById('user').textContent;
+var validURL;
+var ext;
 console.log('user', user);
 
 var $grid = $('.grid').masonry({
@@ -19,7 +21,6 @@ function filterUserPics(pic){
   return user === pic.user
 }
 
-//TODO retrieve all pics and filter on user's id.
 function showUserPics (result){
   console.log('showuserpics called')
   var allPics = result.pics;
@@ -38,9 +39,27 @@ function storeNewPic(result){
   // $.post('http://localhost:3000/store-pic', {"data": allPics});
 }
 
+function check(extension){
+    if (ext.indexOf(extension) > -1){
+        validURL = true;
+    }
+}
+
+function validateURL(url){
+  ext = url.substr(url.length - 4, 4);
+  var picFormats = ['tif', 'tiff', 'gif', 'jpeg', 'jpg', 'jif', 'jfif', 'jp2', 'jpx', 'j2k', 'j2c', 'fpx', 'pcd', 'png', 'pdf'];
+  picFormats.map(check);
+ }
+
+
 $('.add-button').on('click', function(event) {
   event.preventDefault();
+  validURL = false;
   url = $("#url").val();
+  validateURL(url);
+  if (validURL === false){
+      return;
+  }
   title = $("#title").val();
   var elems = [getItemElement(url, title)];
   // make jQuery object

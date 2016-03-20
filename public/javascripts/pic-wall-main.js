@@ -1,28 +1,30 @@
 "use strict";
 
-// var $grid = $('.grid').masonry({
-//   itemSelector: '.grid-item',
-//   percentPosition: true,
-//   columnWidth: '.grid-sizer'
-// });
+var $grid = $('.grid').masonry({
+  itemSelector: '.grid-item',
+  percentPosition: true,
+  columnWidth: '.grid-sizer'
+});
 // // layout Isotope after each image loads
 // $grid.imagesLoaded().progress( function() {
 //   $grid.masonry('layout');
 // });  
-var $grid = $('.grid').imagesLoaded( function() {
-  $grid.masonry({
-    itemSelector: '.grid-item',
-    percentPosition: true,
-    columnWidth: '.grid-sizer'
-  }); 
-});
+// var $grid = $('.grid').imagesLoaded( function() {
+//   $grid.masonry({
+//     itemSelector: '.grid-item',
+//     percentPosition: true,
+//     columnWidth: '.grid-sizer'
+//   }); 
+// });
+
+$(window).load(function(){   $grid.masonry(); });
 
 function showPics(result){
   var allPics = result.pics;
   var elems = allPics.map(getItemElement);
   var $elems = $(elems);
   $grid.append($elems).masonry('appended', $elems);
-  
+
 }
 
 function getItemElement(pic) {

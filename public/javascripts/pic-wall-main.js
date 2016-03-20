@@ -53,6 +53,7 @@ function getItemElement(pic) {
   imageTitle.className = "title";
   var text = document.createTextNode(pic.title);
   imageTitle.appendChild(text);
+  overlay.appendChild(imageUser);
   overlay.appendChild(imageTitle);
   elem.appendChild(image);
   elem.appendChild(overlay);

@@ -105,11 +105,14 @@ function getItemElement2(pic) {
   var overlay = document.createElement('a');
   overlay.className = "overlay";
   overlay.href = "#";
-
+  
+  var imageUser = document.createElement('p');
+  imageUser.className = "user";
   var imageTitle = document.createElement('p');
   imageTitle.className = "title";
   var text = document.createTextNode(pic.title);
   imageTitle.appendChild(text);
+  overlay.appendChild(imageUser);
   overlay.appendChild(imageTitle);
   elem.appendChild(image);
   elem.appendChild(overlay);

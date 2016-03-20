@@ -66,6 +66,18 @@ body { font-family: sans-serif; }
     margin: 0;
 }
 
+.overlay .user {
+    text-align: center;
+    font-size: 20px;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.80);
+    width: 100%;
+    margin: 0;
+}
+
 .grid-item:hover .overlay {
     display: block;
 }

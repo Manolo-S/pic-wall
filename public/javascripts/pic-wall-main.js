@@ -24,7 +24,7 @@ var $grid = $('.grid').masonry({
         $grid.masonry();
     });
 
-$(window).load(function(){   $grid.masonry('layout'); });
+// $(window).load(function(){   $grid.masonry('layout'); });
 
 function showPics(result){
   var allPics = result.pics;

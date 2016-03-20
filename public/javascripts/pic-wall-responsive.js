@@ -74,14 +74,15 @@ $('.add-button').on('click', function(event) {
 
 $grid.on( 'click', '.grid-item', function( event ) {
   event.preventDefault();
-  var id = event.target.id;
-  console.log('1st id', id);
-  console.log('target', event.target);
-  if (id === undefined){ //clicking on the overlay text results in undefined
-    var target = $(event.target); 
-    id = target.parent().attr('id');
-    console.log('id', id);
-  }
+  var target = $(event.target);
+  var node = event.target.nodeName;
+  console.log('target tagname', node)
+  // if (node ==== '')
+  // if (id === 'id'){ //
+  //   var target = $(event.target); 
+  //   id = target.parent().attr('id');
+  //   console.log('id', id);
+  // }
     $.post('https://pic-wall.herokuapp.com/remove-pic', {"url": id});
     // $.post('http://localhost:3000/remove-pic', {"url": event.target.id});
   

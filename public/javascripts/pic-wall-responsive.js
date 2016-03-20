@@ -83,10 +83,10 @@ $grid.on( 'click', '.grid-item', function( event ) {
     .masonry();
 });
 
-$('a').on('click', function(event){
-  event.preventDefault();
-  var url = event.target.id;
-})
+// $('a').on('click', function(event){
+//   event.preventDefault();
+//   var url = event.target.id;
+// })
 
 function getItemElement2(pic) {
   var elem = document.createElement('div');

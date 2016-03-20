@@ -31,12 +31,12 @@ function showPics(result){
   var elems = allPics.map(getItemElement);
   var $elems = $(elems);
   $grid.append($elems).masonry('appended', $elems);
-  $(document).ready(function(){
+  // $(document).ready(function(){
         $('img').load(function(){
             $grid.masonry();
         });
         $grid.masonry();
-    });
+    // });
 
 
 }

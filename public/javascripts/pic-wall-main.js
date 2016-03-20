@@ -16,6 +16,13 @@ function showPics(result){
   var elems = allPics.map(getItemElement);
   var $elems = $(elems);
   $grid.append($elems).masonry('appended', $elems);
+  var $grid = $('.grid').imagesLoaded( function() {
+  $grid.masonry({
+    itemSelector: '.grid-item',
+    percentPosition: true,
+    columnWidth: '.grid-sizer'
+  }); 
+});
 }
 
 function getItemElement(pic) {
@@ -55,13 +62,7 @@ $grid.on( 'click', '.grid-item', function( event ) {
  // $.getJSON('http://localhost:3000/all-pics', showPics)
 
 
-var $grid = $('.grid').imagesLoaded( function() {
-  $grid.masonry({
-    itemSelector: '.grid-item',
-    percentPosition: true,
-    columnWidth: '.grid-sizer'
-  }); 
-});
+
 
 
 

@@ -2,6 +2,8 @@
 var url;
 var title;
 var user = document.getElementById('user').textContent;
+var userName = document.getElementById('userName').textContent;
+
 var validURL;
 var ext;
 console.log('user', user);
@@ -107,8 +109,8 @@ function getItemElement2(pic) {
   overlay.href = "#";
   
   var imageUser = document.createElement('p');
-  imageUser.className = "user";
-  var userText = document.createTextNode(pic.user);
+  imageUser.className = "userName";
+  var userText = document.createTextNode(userName);
   imageUser.appendChild(userText);
   var imageTitle = document.createElement('p');
   imageTitle.className = "title";

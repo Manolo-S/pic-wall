@@ -15,7 +15,8 @@ router.use('/', function(req, res, next) {
 router.get('/', function(req, res){
 	res.render('user', {
 		user: {
-			id: req.user.id
+			id: req.user.id,
+			userName: req.user.displayName
 		}
 	})
 });

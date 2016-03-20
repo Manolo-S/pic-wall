@@ -66,7 +66,7 @@ app.use(function(err, req, res, next) {
 app.set('port', process.env.PORT || 3000);
 
 
-// TODO: remove code below
+// // TODO: remove code below
 
 var picModel = require('./config/picModel');
 

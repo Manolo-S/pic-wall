@@ -75,6 +75,8 @@ $('.add-button').on('click', function(event) {
 $grid.on( 'click', '.grid-item', function( event ) {
   event.preventDefault();
   var id = event.target.id;
+  console.log('1st id', id);
+  console.log('target', event.target);
   if (id === undefined){ //clicking on the overlay text results in undefined
     var target = $(event.target); 
     id = target.parent().attr('id');

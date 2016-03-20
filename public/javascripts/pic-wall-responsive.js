@@ -1,7 +1,7 @@
 "use strict";
 var url;
 var title;
-var user = document.getElementById('user').value;
+var user = document.getElementById('user').textContent;
 console.log('user', user);
 
 var $grid = $('.grid').masonry({

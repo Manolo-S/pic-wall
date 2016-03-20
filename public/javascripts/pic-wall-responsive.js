@@ -84,7 +84,7 @@ $grid.on( 'click', '.grid-item', function( event ) {
     url = target.parent().siblings().attr('src');
   }
   
-  $.post('https://pic-wall.herokuapp.com/remove-pic', {"url": url});
+  $.post('https://pic-wall.herokuapp.com/remove-pic', {"url": url, "user": user});
     // $.post('http://localhost:3000/remove-pic', {"url": event.target.id});
   
   $grid.masonry( 'remove', event.currentTarget )

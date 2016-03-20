@@ -1,6 +1,6 @@
 var url;
 var title;
-var user;
+var user = $("#user").val();
 
 var $grid = $('.grid').masonry({
   itemSelector: '.grid-item',
@@ -13,11 +13,23 @@ $grid.imagesLoaded().progress( function() {
 });  
 
 
+function filterUserPics(pic){
+  return user === pic.user
+}
+
+//TODO retrieve all pics and filter on user's id.
+function showUserPics (result){
+  var allPics = result.pics;
+  var userPics = allPics.filter(filterUserPics);
+  var elems = userPics.map(getItemElement);
+  var $elems = $(elems);
+  $grid.append($elems).masonry('appended', $elems);
+
+}
+
+
 function storeNewPic(result){
   var allPics = result.pics;
-  if (allPics === undefined){
-    allPics = [];
-  }
   allPics.push({"user": user, "title": title, "url": url});
   $.post('https://pic-wall.herokuapp.com/store-pic', {"data": allPics});
   // $.post('http://localhost:3000/store-pic', {"data": allPics});
@@ -27,7 +39,6 @@ $('.add-button').on('click', function(event) {
   event.preventDefault();
   url = $("#url").val();
   title = $("#title").val();
-  user = $("#user").val();
   var elems = [getItemElement(url, title)];
   // make jQuery object
   var $elems = $(elems);
@@ -44,8 +55,6 @@ $grid.on( 'click', '.grid-item', function( event ) {
     $.post('https://pic-wall.herokuapp.com/remove-pic', {"url": event.target.id});
     // $.post('http://localhost:3000/remove-pic', {"url": event.target.id});
   }
-
-
   $grid.masonry( 'remove', event.currentTarget )
     // trigger layout
     .masonry();
@@ -79,5 +88,6 @@ function getItemElement(url, title) {
   return elem;
 }
 
+  $.getJSON('https://pic-wall.herokuapp.com/all-pics', showUserPics)
 
 

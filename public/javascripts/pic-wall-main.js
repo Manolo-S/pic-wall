@@ -6,18 +6,15 @@ var $grid = $('.grid').masonry({
   columnWidth: '.grid-sizer'
 });
 // layout Isotope after each image loads
-// $grid.imagesLoaded().progress( function() {
-//   $grid.masonry();
-// });  
+$grid.imagesLoaded().progress( function() {
+  $grid.masonry('layout');
+});  
 
 function showPics(result){
   var allPics = result.pics;
   var elems = allPics.map(getItemElement);
   var $elems = $(elems);
   $grid.append($elems).masonry('appended', $elems);
-//   $grid.imagesLoaded().progress( function() {
-//   $grid.masonry();
-// }); 
 }
 
 function getItemElement(pic) {

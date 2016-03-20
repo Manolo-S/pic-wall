@@ -15,6 +15,9 @@ function showPics(result){
   var elems = allPics.map(getItemElement);
   var $elems = $(elems);
   $grid.append($elems).masonry('appended', $elems);
+  $grid.imagesLoaded().progress( function() {
+  $grid.masonry();
+}); 
 }
 
 function getItemElement(pic) {
@@ -46,9 +49,9 @@ $grid.on( 'click', '.grid-item', function( event ) {
     .masonry();
 });
 
-$grid.imagesLoaded().progress( function() {
-  $grid.masonry();
-}); 
+// $grid.imagesLoaded().progress( function() {
+//   $grid.masonry();
+// }); 
 
  $.getJSON('https://pic-wall.herokuapp.com/all-pics', showPics)
  // $.getJSON('http://localhost:3000/all-pics', showPics)

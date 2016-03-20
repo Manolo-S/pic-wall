@@ -77,7 +77,7 @@ $grid.on( 'click', '.grid-item', function( event ) {
   var target = $(event.target);
   var node = event.target.nodeName;
   console.log('target tagname', node)
-  if (node ==== 'A'){
+  if (node === 'A'){
     url = target.siblings().attr('src');
     console.log(url);
   } else {

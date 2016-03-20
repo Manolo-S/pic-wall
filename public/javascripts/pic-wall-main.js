@@ -17,12 +17,12 @@ var $grid = $('.grid').masonry({
 //   }); 
 // });
 
- $(document).ready(function(){
-        $('img').load(function(){
-            $grid.masonry();
-        });
-        $grid.masonry();
-    });
+ // $(document).ready(function(){
+ //        $('img').load(function(){
+ //            $grid.masonry();
+ //        });
+ //        $grid.masonry();
+ //    });
 
 // $(window).load(function(){   $grid.masonry('layout'); });
 

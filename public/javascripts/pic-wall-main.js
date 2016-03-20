@@ -9,20 +9,20 @@
 // $grid.imagesLoaded().progress( function() {
 //   $grid.masonry('layout');
 // });  
-
-
-function showPics(result){
-  var allPics = result.pics;
-  var elems = allPics.map(getItemElement);
-  var $elems = $(elems);
-  $grid.append($elems).masonry('appended', $elems);
-  var $grid = $('.grid').imagesLoaded( function() {
+var $grid = $('.grid').imagesLoaded( function() {
   $grid.masonry({
     itemSelector: '.grid-item',
     percentPosition: true,
     columnWidth: '.grid-sizer'
   }); 
 });
+
+function showPics(result){
+  var allPics = result.pics;
+  var elems = allPics.map(getItemElement);
+  var $elems = $(elems);
+  $grid.append($elems).masonry('appended', $elems);
+  
 }
 
 function getItemElement(pic) {

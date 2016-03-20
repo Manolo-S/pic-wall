@@ -66,42 +66,44 @@ app.use(function(err, req, res, next) {
 app.set('port', process.env.PORT || 3000);
 
 
-// TODO: remove code below
+TODO: remove code below
 
-// var picModel = require('./config/picModel');
+var picModel = require('./config/picModel');
 
 
 
-// var allPics = {
-// 	"allPics": [{
-//         user: "1",
-// 		title: "Goofy",
-// 		url: "http://1.bp.blogspot.com/-YNUuBntvEII/VqMQIi6q5TI/AAAAAAAAbCQ/rLlKiF92gbQ/s1600/hurrah.gif"
-// 	}, {
-//         user: "1",
-// 		title: "monkey",
-// 		url: "http://images.clipartpanda.com/monkey-clipart-4ib5bExig.jpeg"
-// 	}]
-// }
+var allPics = {
+	"allPics": [{
+        user: "1",
+        userName: "MS",
+		title: "Goofy",
+		url: "http://1.bp.blogspot.com/-YNUuBntvEII/VqMQIi6q5TI/AAAAAAAAbCQ/rLlKiF92gbQ/s1600/hurrah.gif"
+	}, {
+        user: "1",
+        userName: "MS",
+		title: "monkey",
+		url: "http://images.clipartpanda.com/monkey-clipart-4ib5bExig.jpeg"
+	}]
+}
 
-// console.log(mongoose.connection.readyState);
+console.log(mongoose.connection.readyState);
 
-// if (mongoose.connection.readyState === 0) {
-//     // var db = mongoose.connect('mongodb://localhost/pic-wall');
-// 	var db = mongoose.connect('mongodb://piet:snot@ds047722.mlab.com:47722/pic-wall');
-// 	console.log('connected to db');
-// 	picModel.create({
-// 		pics: allPics.allPics
-// 	}, function(err, pics) {
-// 		if (err) {
-// 			console.log('error storing pics array', err)
-// 		} else {
-// 			mongoose.connection.close(function() {
-// 				console.log('Mongoose connection disconnected');
-// 			});
-// 		}
-// 	});
-// }
+if (mongoose.connection.readyState === 0) {
+    // var db = mongoose.connect('mongodb://localhost/pic-wall');
+	var db = mongoose.connect('mongodb://piet:snot@ds047722.mlab.com:47722/pic-wall');
+	console.log('connected to db');
+	picModel.create({
+		pics: allPics.allPics
+	}, function(err, pics) {
+		if (err) {
+			console.log('error storing pics array', err)
+		} else {
+			mongoose.connection.close(function() {
+				console.log('Mongoose connection disconnected');
+			});
+		}
+	});
+}
 
 
 var server = app.listen(app.get('port'), function() {

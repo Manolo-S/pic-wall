@@ -3,6 +3,7 @@ var Schema = mongoose.Schema;
 
 var PicSchema = new Schema({
 	user: String,
+	userName: String,
 	title: String,
 	url: String,
 	_id: false

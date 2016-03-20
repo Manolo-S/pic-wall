@@ -31,14 +31,10 @@ function showPics(result){
   var elems = allPics.map(getItemElement);
   var $elems = $(elems);
   $grid.append($elems).masonry('appended', $elems);
-  // $(document).ready(function(){
-        $('img').load(function(){
-            $grid.masonry();
-        });
-        $grid.masonry();
-    // });
-
-
+  $('img').load(function(){
+      $grid.masonry();
+  });
+  $grid.masonry();
 }
 
 function getItemElement(pic) {
@@ -49,7 +45,10 @@ function getItemElement(pic) {
   overlay.className = "overlay";
   overlay.href = "#";
 
-  
+  var imageUser = document.createElement('p');
+  imageUser.className = "userName";
+  var userText = document.createTextNode(pic.userName);
+  imageUser.appendChild(userText);
   var imageTitle = document.createElement('p');
   imageTitle.className = "title";
   var text = document.createTextNode(pic.title);

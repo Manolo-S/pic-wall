@@ -25,7 +25,7 @@ function showUserPics (result){
   var allPics = result.pics;
   var userPics = allPics.filter(filterUserPics);
   console.log('userpics', userPics);
-  var elems = userPics.map(getItemElement);
+  var elems = userPics.map(getItemElement2);
   var $elems = $(elems);
   $grid.append($elems).masonry('appended', $elems);
 }
@@ -67,6 +67,27 @@ $('a').on('click', function(event){
   event.preventDefault();
   var url = event.target.id;
 })
+
+function getItemElement2(pic) {
+  var elem = document.createElement('div');
+  var image = document.createElement('img');
+  image.src = pic.url;
+  var overlay = document.createElement('a');
+  overlay.className = "overlay";
+  overlay.href = "#";
+
+  var imageTitle = document.createElement('p');
+  imageTitle.className = "title";
+  var text = document.createTextNode(pic.title);
+  imageTitle.appendChild(text);
+  overlay.appendChild(imageTitle);
+  elem.appendChild(image);
+  elem.appendChild(overlay);
+  var hRand = Math.random();
+  var heightClass = hRand > 0.85 ? 'grid-item--height4' : hRand > 0.6 ? 'grid-item--height3' : hRand > 0.35 ? 'grid-item--height2' : '';
+  elem.className = 'grid-item ' ;
+  return elem;
+}
 
 
 function getItemElement(url, title) {

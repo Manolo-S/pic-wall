@@ -1,14 +1,15 @@
 "use strict";
 
-var $grid = $('.grid').masonry({
-  itemSelector: '.grid-item',
-  percentPosition: true,
-  columnWidth: '.grid-sizer'
-});
-// layout Isotope after each image loads
-$grid.imagesLoaded().progress( function() {
-  $grid.masonry('layout');
-});  
+// var $grid = $('.grid').masonry({
+//   itemSelector: '.grid-item',
+//   percentPosition: true,
+//   columnWidth: '.grid-sizer'
+// });
+// // layout Isotope after each image loads
+// $grid.imagesLoaded().progress( function() {
+//   $grid.masonry('layout');
+// });  
+
 
 function showPics(result){
   var allPics = result.pics;
@@ -53,6 +54,14 @@ $grid.on( 'click', '.grid-item', function( event ) {
  $.getJSON('https://pic-wall.herokuapp.com/all-pics', showPics)
  // $.getJSON('http://localhost:3000/all-pics', showPics)
 
+
+var $grid = $('.grid').imagesLoaded( function() {
+  $grid.masonry({
+    itemSelector: '.grid-item',
+    percentPosition: true,
+    columnWidth: '.grid-sizer'
+  }); 
+});
 
 
 

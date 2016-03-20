@@ -137,10 +137,15 @@ function getItemElement(url, title) {
   overlay.href = "#";
   overlay.id = url;
 
+  var imageUser = document.createElement('p');
+  imageUser.className = "userName";
+  var userText = document.createTextNode(userName);
+  imageUser.appendChild(userText);
   var imageTitle = document.createElement('p');
   imageTitle.className = "title";
   var text = document.createTextNode(title);
   imageTitle.appendChild(text);
+  overlay.appendChild(imageUser);
   overlay.appendChild(imageTitle);
   elem.appendChild(image);
   elem.appendChild(overlay);

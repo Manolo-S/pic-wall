@@ -58,6 +58,7 @@ $('.add-button').on('click', function(event) {
   url = $("#url").val();
   validateURL(url);
   if (validURL === false){
+  //TODO display message that url needs to end with a valid pic extension
       return;
   }
   title = $("#title").val();

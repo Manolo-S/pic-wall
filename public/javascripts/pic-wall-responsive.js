@@ -1,3 +1,4 @@
+"use strict";
 var url;
 var title;
 var user = $("#user").val();
@@ -19,12 +20,13 @@ function filterUserPics(pic){
 
 //TODO retrieve all pics and filter on user's id.
 function showUserPics (result){
+  console.log('showuserpics called')
   var allPics = result.pics;
   var userPics = allPics.filter(filterUserPics);
+  console.log('userpics', userPics);
   var elems = userPics.map(getItemElement);
   var $elems = $(elems);
   $grid.append($elems).masonry('appended', $elems);
-
 }
 
 
@@ -67,6 +69,7 @@ $('a').on('click', function(event){
 
 
 function getItemElement(url, title) {
+  console.log('getitemelement called')
   var elem = document.createElement('div');
   var image = document.createElement('img');
   image.src = url;
@@ -88,6 +91,6 @@ function getItemElement(url, title) {
   return elem;
 }
 
-  $.getJSON('https://pic-wall.herokuapp.com/all-pics', showUserPics)
+$.getJSON('https://pic-wall.herokuapp.com/all-pics', showUserPics)
 
 

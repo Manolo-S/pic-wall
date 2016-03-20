@@ -6,15 +6,12 @@ var $grid = $('.grid').masonry({
   columnWidth: '.grid-sizer'
 });
 // layout Isotope after each image loads
-$grid.imagesLoaded().progress( function() {
-  $grid.masonry();
-});  
+// $grid.imagesLoaded().progress( function() {
+//   $grid.masonry();
+// });  
 
 function showPics(result){
   var allPics = result.pics;
-  if (allPics === undefined){
-      return;
-  }
   var elems = allPics.map(getItemElement);
   var $elems = $(elems);
   $grid.append($elems).masonry('appended', $elems);
@@ -28,6 +25,7 @@ function getItemElement(pic) {
   overlay.className = "overlay";
   overlay.href = "#";
 
+  
   var imageTitle = document.createElement('p');
   imageTitle.className = "title";
   var text = document.createTextNode(pic.title);
@@ -48,6 +46,9 @@ $grid.on( 'click', '.grid-item', function( event ) {
     .masonry();
 });
 
+$grid.imagesLoaded().progress( function() {
+  $grid.masonry();
+}); 
 
  $.getJSON('https://pic-wall.herokuapp.com/all-pics', showPics)
  // $.getJSON('http://localhost:3000/all-pics', showPics)

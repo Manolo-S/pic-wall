@@ -126,6 +126,6 @@ body { font-family: sans-serif; }
  background-color: #99bbff;    
 }
 
-#user {
+#user, #userName {
   display: none;
 }
